@@ -1,0 +1,95 @@
+{
+  "easycom": {
+    "^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+  },
+  "pages": [
+    // {
+    //   "path": "pages/login/index",
+    //   "style": {
+    //     "navigationBarTitleText": "登录"
+    //   }
+    // },
+    // {
+    //   "path": "pages/login/components/newRegister",
+    //   "style": {
+    //     "navigationBarTitleText": "用 户 注 册"
+    //   }
+    // },
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "首 页"
+      }
+    },
+    {
+      "path": "pages/index/components/turntable",
+      "style": {
+        "navigationBarTitleText": "转 轮 盘"
+      }
+    },
+    {
+      "path": "pages/lottery/index",
+      "style": {
+        "navigationBarTitleText": "发 布"
+      }
+    },
+    {
+      "path": "pages/lottery/components/map",
+      "style": {
+        "navigationBarTitleText": "地 图"
+      }
+    },
+    {
+      "path": "pages/my/index",
+      "style": {
+        "navigationBarTitleText": "我 的"
+      }
+    },
+    {
+      "path": "pages/my/components/settings",
+      "style": {
+        "navigationBarTitleText": "个 人 设 置"
+      }
+    },
+    {
+      "path": "pages/my/components/newHome",
+      "style": {
+        "navigationBarTitleText": "首 页 设 置"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "app-plus": {
+      "background": "#efeff4"
+    }
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#ff9900",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/img/home.png",
+        "selectedIconPath": "static/img/home1.png",
+        "text": "首 页"
+      },
+      {
+        "pagePath": "pages/lottery/index",
+        "iconPath": "static/img/publish.png",
+        "selectedIconPath": "static/img/publish1.png",
+        "text": "发 布"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "static/img/my.png",
+        "selectedIconPath": "static/img/my1.png",
+        "text": "我 的"
+      }
+    ]
+  }
+}
