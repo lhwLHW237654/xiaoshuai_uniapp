@@ -69,8 +69,19 @@ const bearFruit = ref(false);
 const bearFruitData = ref("");
 const activeIndex = ref(0);
 const history = ref([]);
+// 声明音效
+let spinAudio = null;
+let endAudio = null;
+ 
+
 onMounted(() => {
   init();
+  spinAudio = uni.createInnerAudioContext();
+  spinAudio.src = '/static/audio/spin.mp3'; // 你需要把音频放在static下
+  spinAudio.loop = true;
+  endAudio = uni.createInnerAudioContext();
+  endAudio.src = '/static/audio/end.mp3';
+  endAudio.loop = false;
 });
 //中奖记录
 function takeNotesBtn() {
@@ -79,19 +90,26 @@ function takeNotesBtn() {
 }
 function start() {
   bearFruit.value = false;
-  if (isactive.value) {
-    return;
-  }
-  //list中随机一个中奖
-  let n = Math.floor(Math.random() * list.value.length);
+  if (isactive.value) return;
+  // 随机一个中奖
+  const n = Math.floor(Math.random() * list.value.length);
   isactive.value = true;
   rotate.value += 1800 + ((activeIndex.value - n) * 360) / list.value.length;
+  // 开始时播放旋转音效（如在H5端，spinAudio可能为null要处理下）
+  if (spinAudio) {
+    spinAudio.stop(); // 保守处理：如果上一次还没停
+    spinAudio.play();
+  }
   setTimeout(() => {
     activeIndex.value = n;
     bearFruitData.value = list.value[n].name + "：" + list.value[n].desc;
     history.value.push(list.value[n].name + "：" + list.value[n].desc);
     isactive.value = false;
     bearFruit.value = true;
+    // 停止旋转音效
+    if (spinAudio) spinAudio.stop();
+    // 播放中奖音效
+    if (endAudio) endAudio.play();
   }, second.value * 1000);
 }
 function init() {
