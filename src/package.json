@@ -1,18 +1,24 @@
 {
-    "id": "i671-lucky",
-    "name": "抽奖大转盘-分享",
-    "version": "v1.0.1",
-    "description": "抽奖大转盘",
+    "id": "waterfall-lazy-image",
+    "name": "瀑布流组件、自动计算比例、简单好用",
+    "displayName": "瀑布流组件、自动计算比例、简单好用",
+    "version": "1.3.0",
+    "description": "瀑布流组件，含动画效果，如传width和height则使用传入的加载",
     "keywords": [
-        "插件",
-        "抽奖",
-        "大转盘",
-        "Canvas"
+        "懒加载",
+        "瀑布流",
+        "动画",
+        "特效"
     ],
     "dcloudext": {
-        "category": [
-            "前端组件",
-            "通用组件"
-        ]
+        "type": "component-vue",
+        "sale": {
+            "regular": {
+                "price": "0.00"
+            },
+            "sourcecode": {
+                "price": "0.00"
+            }
+        }
     }
 }
