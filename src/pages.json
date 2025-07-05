@@ -28,6 +28,12 @@
       }
     },
     {
+      "path": "pages/index/components/remember",
+      "style": {
+        "navigationBarTitleText": "回 忆 站"
+      }
+    },
+    {
       "path": "pages/lottery/index",
       "style": {
         "navigationBarTitleText": "发 布"

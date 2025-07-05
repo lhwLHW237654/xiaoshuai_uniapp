@@ -6,8 +6,8 @@
       <view class="time">{{ timeString }}</view>
     </view>
     <view class="center">
-      <u-swiper :list="imageData" style="height: 200rpx;"></u-swiper>
-      <u-notice-bar mode="vertical" type="warning" :list="list" style="margin-top: 20rpx;"></u-notice-bar>
+      <u-swiper :list="imageData" style="height: 200rpx"></u-swiper>
+      <u-notice-bar mode="vertical" type="warning" :list="list" style="margin-top: 20rpx"></u-notice-bar>
       <u-row gutter="16">
         <u-col span="4">
           <view class="commemorate">
@@ -18,7 +18,7 @@
           </view>
         </u-col>
         <u-col span="4">
-          <view class="image">
+          <view class="image" @click="rememberBtn">
             <view>
               <image style="width: 110rpx; height: 110rpx; margin-top: 25rpx" :src="'../../static/home/memoirs.svg'" mode="aspectFit"></image>
             </view>
@@ -106,7 +106,13 @@ onUnmounted(() => {
 });
 
 const list = ref(["寒雨连江夜入吴", "平明送客楚山孤", "洛阳亲友如相问", "一片冰心在玉壶"]);
-
+//回忆站
+function rememberBtn() {
+  uni.navigateTo({
+    url: "./components/remember",
+  });
+}
+//转盘
 function turntable() {
   uni.navigateTo({
     url: "./components/turntable",
