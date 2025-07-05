@@ -1,14 +1,14 @@
 <template>
-  <div class='map'>
-     1212
-  </div>
+	<view class='mapBox fc'>
+	</view>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
+	import {
+		onMounted,
+		ref
+	} from 'vue';
 </script>
 
 <style lang='scss' scoped>
-
 </style>
