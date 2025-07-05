@@ -36,7 +36,7 @@
     {
       "path": "pages/lottery/index",
       "style": {
-        "navigationBarTitleText": "发 布"
+        "navigationBarTitleText": "记 录"
       }
     },
     {
@@ -88,7 +88,7 @@
         "pagePath": "pages/lottery/index",
         "iconPath": "static/img/publish.png",
         "selectedIconPath": "static/img/publish1.png",
-        "text": "发 布"
+        "text": "记 录"
       },
       {
         "pagePath": "pages/my/index",
