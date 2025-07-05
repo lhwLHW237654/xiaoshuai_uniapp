@@ -9,22 +9,20 @@
         </u-image>
       </view>
     </view>
-    <view class="time">
-      <u-field v-model="time" label="时间" placeholder="请选择在一起时间">
-        <template v-slot:right>
+    <view style="padding: 20rpx">
+      <u-form :model="form">
+        <u-form-item label="时间" prop="time">
+          <u-input v-model="form.time" />
           <u-button size="mini" type="success" @click="selectTime">选择</u-button>
-        </template>
-      </u-field>
-    </view>
-    <view class="tag">
-      <view class="tagData" v-for="(item, index) in tagData" :key="index">
-        <u-field v-model="item.text" label="标签" placeholder="请输入标签">
-          <template v-slot:right>
-            <u-button size="mini" v-if="index === tagData.length - 1" type="success" @click="addText">添加</u-button>
-            <u-button style="margin-left: 10rpx" v-if="item.text" size="mini" type="error" @click="delText(index)">删除</u-button>
-          </template>
-        </u-field>
-      </view>
+        </u-form-item>
+        <view class="tagData" v-for="(item, index) in form.tagData" :key="index" style="">
+          <u-form-item label="标签">
+            <u-input v-model="item.text" placeholder="请输入标签" />
+            <u-button size="mini" type="success" v-if="index === form.tagData.length - 1" @click="addText" style="margin-left: 10rpx">添加</u-button>
+            <u-button size="mini" type="error" v-if="form.tagData.length > 1" @click="delText(index)" style="margin-left: 10rpx">删除</u-button>
+          </u-form-item>
+        </view>
+      </u-form>
     </view>
     <view class="btn">
       <u-button type="primary" @click="keep">保存</u-button>
@@ -36,14 +34,16 @@
 
 <script setup>
 import { ref } from "vue";
-const time = ref("");
 const show = ref(false);
 const uToast1 = ref(null);
-const tagData = ref([
-  {
-    text: "",
-  },
-]);
+const form = ref({
+  time: "",
+  tagData: [
+    {
+      text: "",
+    },
+  ],
+});
 const imageData = ref("");
 function uploadUrlApi(filePaths) {
   const files = Array.isArray(filePaths) ? filePaths : [filePaths];
@@ -87,17 +87,17 @@ function selectImage() {
   });
 }
 function addText() {
-  tagData.value.push({ text: "" });
+  form.value.tagData.push({ text: "" });
 }
 function delText(index) {
-  if (tagData.value.length === 1) {
+  if (form.value.tagData.length === 1) {
     uToast1.value.show({
       title: "最少留一条标签",
       type: "warning",
     });
     return;
   }
-  tagData.value.splice(index, 1);
+  form.value.tagData.splice(index, 1);
 }
 const params = {
   year: true,
@@ -108,7 +108,7 @@ const params = {
   second: false,
 };
 function getTime(value) {
-  time.value = `${value.year}-${value.month}-${value.day}`;
+  form.value.time = `${value.year}-${value.month}-${value.day}`;
 }
 function selectTime() {
   show.value = true;

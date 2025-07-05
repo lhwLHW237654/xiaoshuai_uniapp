@@ -6,7 +6,8 @@
       <view class="time">{{ timeString }}</view>
     </view>
     <view class="center">
-      <u-notice-bar mode="horizontal" type="error" :list="list"></u-notice-bar>
+      <u-swiper :list="imageData" style="height: 200rpx;"></u-swiper>
+      <u-notice-bar mode="vertical" type="warning" :list="list" style="margin-top: 20rpx;"></u-notice-bar>
       <u-row gutter="16">
         <u-col span="4">
           <view class="commemorate">
@@ -77,6 +78,21 @@ const calculateTime = () => {
   timeString.value = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
 };
 let timer;
+
+const imageData = ref([
+  {
+    image: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+    title: "昨夜星辰昨夜风，画楼西畔桂堂东",
+  },
+  {
+    image: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+    title: "身无彩凤双飞翼，心有灵犀一点通",
+  },
+  {
+    image: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+    title: "谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳",
+  },
+]);
 
 // 在组件挂载时启动计时器
 onMounted(() => {
