@@ -97,7 +97,6 @@ function start() {
   rotate.value += 1800 + ((activeIndex.value - n) * 360) / list.value.length;
   // 开始时播放旋转音效（如在H5端，spinAudio可能为null要处理下）
   if (spinAudio) {
-    spinAudio.stop(); // 保守处理：如果上一次还没停
     spinAudio.play();
   }
   setTimeout(() => {
@@ -109,7 +108,9 @@ function start() {
     // 停止旋转音效
     if (spinAudio) spinAudio.stop();
     // 播放中奖音效
-    if (endAudio) endAudio.play();
+    if (endAudio) {
+		console.log("播放结束y音频");
+		endAudio.play();}
   }, second.value * 1000);
 }
 function init() {
